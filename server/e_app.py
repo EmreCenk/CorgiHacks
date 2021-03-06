@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template, redirect, url_for, request, Response,session
-from client_side_sockets.client_class import client
+from server.client_side_sockets.client_class import client
 
 print("this")
 key_for_client_username  = "something" #will change for usr
@@ -24,8 +24,9 @@ def home_page():
     #     return url_for("set_name")
 
     if request.method == 'GET':
-        global current_client #we need to access this client object from the other functions as well
-        current_client = client(username = session[key_for_client_username])
+        if client is None:
+            global current_client #we need to access this client object from the other functions as well
+            current_client = client(username = session[key_for_client_username])
 
         return render_template("index.html")
 
@@ -36,7 +37,7 @@ def home_page():
             
             return ('', 204) #returning nothing
         message = "message gotten : " + str(request.data)[1:] #getting the message that user wants to send
-        client.send_message(msg=message) #sends the message
+        client.send_message(self=client, msg=message) #sends the message
         return ('', 204) #returning nothing
 
 

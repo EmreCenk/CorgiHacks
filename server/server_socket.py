@@ -93,5 +93,5 @@ if __name__=="__main__":
     print("waiting for connection")
     accept_thread=Thread(target=wait_to_connect(server=server), args=(server,)) #there is a comma after server bc the
     # input asks
-    # for
+    # for tuple
     print("done")

@@ -54,17 +54,21 @@ def get_images():
     elif sorting_mode not in ["date", "votes"]:
         return Response(status=400)
 
-    # If sorting mode is votes, give them the top 50
     if sorting_mode == "votes":
+        # If sorting mode is votes, give them the top 50
         query_content = db.session.query(Image).order_by(
             desc(Image.number_of_votes)).limit(50).all()
         # Make query_content JSON serializable with list comprehension
-        query_content = [{"dog_name": x.dog_name, "submitter_name": x.submitter_name, "image_url": x.image_url}
+        query_content = [{"submission_id": x.submission_id, "dog_name": x.dog_name, "submitter_name": x.submitter_name, "image_url": x.image_url}
                          for x in query_content]
-        list_response = {"dogs": query_content}
+        list_response = {"content": query_content}
         return list_response
     else:
-        start_point = request.args.get("start") or 0
         # Get 25 images in order of submission_id descending based on starting ID
-
-    return Response(status=500)
+        start_point = int(request.args.get("start")) or 0
+        query_content = db.session.query(Image).order_by(
+            desc(Image.submission_id)).limit(start_point + 50).all()[-50:]
+        query_content = [{"submission_id": x.submission_id, "dog_name": x.dog_name, "submitter_name": x.submitter_name, "image_url": x.image_url}
+                         for x in query_content]
+        list_response = {"content": query_content}
+        return list_response

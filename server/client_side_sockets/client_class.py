@@ -18,10 +18,11 @@ class client:
         
         self.socket_of_client = socket(AF_INET, SOCK_STREAM)
         self.socket_of_client.connect(self.address)
+        self.send_message(username)
+
         self.messages = []
         receive_thread = Thread(target=self.receive_messages)
         receive_thread.start()
-        self.send_message(username)
         self.lock = Lock()
 
     def receive_messages(self):
@@ -47,7 +48,7 @@ class client:
         """
         try:
             self.socket_of_client.send(bytes(msg, "utf8"))
-            if msg == "{quitquitquit}":
+            if msg == "{nonoquitquitquit}":
                 self.socket_of_client.close()
                 
         except Exception as e:
@@ -58,8 +59,7 @@ class client:
 
     def get_messages(self):
         """
-        gets a list of messages 
-
+        gets a list of messages
         """
         messages_copy = list(self.messages) #creating a copy of the messages
 
@@ -71,4 +71,4 @@ class client:
         return messages_copy
     
     def disconnect(self):
-        self.send_message("{quitquitquit}")
+        self.send_message("{nonoquitquitquit}")

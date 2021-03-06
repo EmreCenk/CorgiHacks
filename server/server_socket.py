@@ -33,7 +33,7 @@ def send_to_everyone(text, name):
 
 
 def client_com(user):
-    #This is the thread to handle the messages that the client sends, in this case, the client is a socket
+    #This is the thread to handle the messages that the client sends
     go=True
 
     client=user.client

@@ -13,10 +13,10 @@
 function send_message(){
 
     var fillform = document.getElementById("message_sending");
-    var message = document.getElementById("message");
+    var message = document.getElementById("message_sent");
     // console.log(message.value);
 
-    console.log(fillform.textContent);
+    message.value = ""; //resetting the input field
     
 
     fillform.submit();
@@ -25,7 +25,10 @@ function send_message(){
 
 }
 
+function check_if_enter(e) {
 
-function alpa(){
-    console.log("connected to this file");
-}
+    if(e && e.keyCode == 13) {
+       send_message();
+    }
+ }
+

@@ -60,7 +60,9 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+
 }
+
 .blinktext {
     animation: blinker 1s linear infinite
 }
@@ -78,3 +80,157 @@
         opacity: 0;
     }
 }
+.logosmall {
+    background: url("..\Design_ELEMENTS\logosmall.png");
+    width: 157px;
+    height: 152px;
+}
+.brand { /* DogeGram */
+    position: absolute;
+    width: 247px;
+    height: 67px;
+    left: 169px;
+    top: 102px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 67px;
+   
+    text-align: right;
+    color: #7221B3;
+}
+.uploadbutton {
+    /* PngItem_1571855 1 */
+    position: absolute;
+    width: 130.32px;
+    height: 100px;
+    left: 1469px;
+    top: 86px;
+    background: url(PngItem_1571855.png);
+}
+.chatbutton {
+    /* PngItem_1489577 1 */
+    position: absolute;
+    width: 122px;
+    height: 110px;
+    left: 1658px;
+    top: 81px;
+    background: url(PngItem_1489577.png);
+}
+.greet {
+    /* Hello, Sample User! */
+    position: absolute;
+    width: 426px;
+    height: 64px;
+    left: 222px;
+    top: 326px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 64px;
+    /* identical to box height */
+    color: #000000;
+}
+.madeforyou {
+    /* Made for you */
+    position: absolute;
+    width: 766px;
+    height: 166px;
+    left: 212px;
+    top: 390px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 125px;
+    line-height: 166px;
+    color: #000000;
+}
+.picturebar1 {
+    /* Rectangle 2 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 222px;
+    top: 676px;
+    background: #C4C4C4;
+}
+.picturebar2 {
+    /* Rectangle 3 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 753px;
+    top: 670px;
+    background: #C4C4C4;
+}
+.picturebar3 {
+    /* Rectangle 4 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 1269px;
+    top: 670px;
+    background: #C4C4C4;
+}
+.picturebar4 {
+    /* Rectangle 5 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 222px;
+    top: 1195px;
+    background: #C4C4C4;
+}
+.picturebar5 {
+    /* Rectangle 6 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 753px;
+    top: 1195px;
+    background: #C4C4C4;
+}
+.picturebar6 {
+    /* Rectangle 7 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 1269px;
+    top: 1195px;
+    background: #C4C4C4;
+}
+.picturebar7 {
+    /* Rectangle 8 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 222px;
+    top: 1714px;
+    background: #C4C4C4;
+}
+.picturebar8 {
+    /* Rectangle 9 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 753px;
+    top: 1714px;
+    background: #C4C4C4;
+}
+.picturebar9 {
+    /* Rectangle 10 */
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 1269px;
+    top: 1714px;
+    background: #C4C4C4;
+}
+.bar1 {
+    background: rgba(248,248,248,1);
+    width: 100%;
+    height: 251px;
+}
+

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request, Response
 app = Flask(__name__)
 
 # TODO: Configure text file to store chat messages (I heard you like plain text Emre)
@@ -16,11 +16,12 @@ def home_page():
 
 
 # All of our api routes will be prefaced with /api
-@app.route('/api/get_chat')
+@app.route('/api/get_chat', methods=["GET"])
 def get_chat():
     chat = []
-    with open("chat.txt") as f:
+    with open("chat.txt", "r") as f:
         chat = f.readlines()
+        # Convert each item to a dict so it can be sent as JSON
         chat = [{"message": x} for x in chat]
         # Get last 50 messages only, don't want it to be super slow
         chat = chat[-50:]
@@ -28,9 +29,24 @@ def get_chat():
     return chat
 
 
-@app.route('/api/send_chat')
+@app.route('/api/send_chat', methods=["POST"])
 def send_chat():
-    return "Hello"
+    # Check if they are verified with Recaptcha
+    # If they are verified, add the message to the file
+    # TODO: Implement profanity filter API
+
+    # If request is in wrong format, return bad request status
+    if not request.is_json:
+        return Response(status=400)
+
+    received_message = request.get_json()["message"]
+
+    with open("chat.txt", "w") as f:
+        f.write(received_message + "\n")
+        print(received_message)
+
+    # Return HTTP "Created" response
+    return Response(status=201)
 
 
 @app.route('/api/get_images')

@@ -6,14 +6,16 @@
 
 <body>
 
-<img src="./Design_ELEMENTS/SPLASH.png" alt="DogeGram" width="450" height="450" style="vertical-align:middle"  class="center"/>
+<img id="fade" src="./Design_ELEMENTS/SPLASH.png" alt="DogeGram" width="450" height="450" style="vertical-align: middle; animation: fadeIn ease 3s;"  class="center"/>
 <br />
 <p class="font" id="click">Click Anyware to Start!</p>
 <br />
 <br />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 <script>
+    //loaded in jquery
     console.log("loaded")
+    $("fade").fadeIn(3000);
     $('*').click(function(event) {
     if (this === event.target) { 
         alert('Your mom gay');

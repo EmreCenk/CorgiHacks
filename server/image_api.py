@@ -1,8 +1,6 @@
-import os
-from flask import Blueprint, request, Response, current_app
+from flask import Blueprint, request, Response
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func, desc
-import csv
 from datetime import datetime
 
 image_api_blueprint = Blueprint("image_api", __name__)
@@ -17,6 +15,27 @@ class Image(db.Model):
     dog_name = db.Column(db.String(100))
     date_submitted = db.Column(db.DateTime, default=datetime.now)
     number_of_votes = db.Column(db.Integer, default=0)
+
+
+@image_api_blueprint.route("/api/vote_image", methods=["POST"])
+def vote_image():
+    if not request.is_json:
+        return Response(status=400)
+
+    try:
+        request_content = request.get_json()
+        submission_id = request_content["submission_id"]
+    except KeyError:
+        return Response(status=400)
+
+    submission = db.session.query(Image).filter_by(
+        submission_id=submission_id).first()
+    if submission == None:
+        return Response(status=400)
+
+    submission.number_of_votes = submission.number_of_votes + 1
+    db.session.commit()
+    return Response(status=200)
 
 
 @image_api_blueprint.route("/api/send_image", methods=["POST"])
@@ -35,7 +54,12 @@ def send_image():
 
     # Set submission ID to max in db + 1
     submission_id = db.session.query(
-        func.max(Image.submission_id)).first()[0] + 1
+        func.max(Image.submission_id)).first()[0]
+    if submission_id == None:
+        submission_id = 0
+    else:
+        submission_id += 1
+
     image = Image(submission_id=submission_id, image_url=image_url,
                   submitter_name=submitter_name, dog_name=dog_name)
     db.session.add(image)

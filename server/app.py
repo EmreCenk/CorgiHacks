@@ -1,5 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, request, Response
+
+# Pylance doesn't like this but it works
+from image_api import image_api_blueprint
+
 app = Flask(__name__)
+app.register_blueprint(image_api_blueprint)
 
 # TODO: Configure text file to store chat messages (I heard you like plain text Emre)
 # 		- Actually, use CSV format so that we store users names as well? and timestamps
@@ -47,16 +52,6 @@ def send_chat():
 
     # Return HTTP "Created" response
     return Response(status=201)
-
-
-@app.route('/api/get_images')
-def get_images():
-    return "Hello"
-
-
-@app.route('/api/send_image')
-def send_image():
-    return "Hello"
 
 
 # Fallback route if they just type something random

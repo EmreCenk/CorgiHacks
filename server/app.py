@@ -1,18 +1,17 @@
 import os
 from flask import Flask, render_template, redirect, url_for, request, Response
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-
-# Pylance doesn't like this but it works
 from image_api import image_api_blueprint, db
 
 app = Flask(__name__)
 app.register_blueprint(image_api_blueprint)
 
 
+# Setup database
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data/images.db"
 db.init_app(app)
+
+# Create database if it doesn't exist already
 if not os.path.exists("./data/images.db"):
     with app.app_context():
         db.create_all()

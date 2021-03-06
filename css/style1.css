@@ -1,0 +1,23 @@
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.blinktext {
+    animation: blinker 1s linear infinite
+}
+.font {
+    animation: blinker 1s linear infinite;
+    font-size: 25px;
+    text-align: center;
+    font-family: "Segoe UI";
+    margin-left: auto;
+    margin-right: auto;
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

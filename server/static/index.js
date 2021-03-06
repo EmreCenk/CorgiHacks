@@ -12,16 +12,23 @@
 
 function send_message(){
 
-    var fillform = document.getElementById("message_sending");
     var message = document.getElementById("message_sent");
     // console.log(message.value);
-
-    message.value = ""; //resetting the input field
+    if( message.value.length<1){
+        //there is nothing to send, so we return 
+        return None
+    }
     
+    let tosend = new XMLHttpRequest();
+    let url = '/';
+    tosend.open('POST',url,true);
+    let json_to_send = {"username":message.value};
 
-    fillform.submit();
+    tosend.send(JSON.stringify(json_to_send));
 
 
+
+    message.value = ""; //resetting the input field 
 
 }
 

@@ -22,11 +22,13 @@ def home_page():
         return render_template("index.html")
 
     else:
-        message = "message gotten : " + str(request.form["message_sent"])#getting the message
+        message = "message gotten : " + str(request.data)#getting the message
+        print(str(request.form))
         #write_message to file
         #broadcast message
         print(message)
         return ('', 204) #returning nothing
+
 
 
 @app.route('/work')

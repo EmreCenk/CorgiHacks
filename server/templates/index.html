@@ -8,6 +8,7 @@
 
 <!--		boostrap css: -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 		<meta charset="UTF-8" />
 		<title>DogeGram</title>
@@ -15,14 +16,35 @@
 	<body>
 		<h1>Welcome to DogeGram!</h1>
 
+		<form name = "message_sending" id = "message_sending" novalidate="novalidate" method="POST">
+			<div class="row align-items-stretch mb-5">
+                        
+				<div class="col-md-6" id="centered_alpha">
+					<div class="form-group modded_form">
+						<input autocomplete="off" class="form-control" id="message_sent" name="message_sent" type="text" placeholder="Send Message"/>
+						<!-- <p id="validthinghere" class="help-block text-danger"   ></p> <br>
+						<p id="second" class="help-block "  > {{result}}</p> <br> -->
+					</div>
+
+				</div>
+				
+			</div>
+			<div class="text-center" id = "mescontain">
+				<div id="success"></div>
+				<button class="btn btn-primary btn-xl text-uppercase" id="alp" type="button"
+						onclick="send_message()">Send</button>
+			</div>
+
+		</form>
+
 
 <!--		loading javascript file from the static folder:-->
-		<script type = "text/javascript" src="{{ urlfor('static', filename = 'index.js') }}"></script>
+		<script type = "text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
 
 
 <!--		ajax and boostsrap javascript-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
+		
 	</body>
 </html>

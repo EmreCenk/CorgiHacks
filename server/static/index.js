@@ -9,10 +9,35 @@
 //         return false;
 //     });
 //     });
+
+var current_messages = [];
+
+window.addEventListener("load",function(){
+    var update_loop = setInterval(update_messages,100);
+    update_messages();
+})
 async function update_messages() {
+
     const response = await fetch('/api/get_real_messages');
     const usable = await response.json();
-    console.log(usable);
+    
+    // let to_append = document.getElementsByTagName("body");
+    
+    let to_loop = Object.keys(usable).length;
+    if (to_loop>current_messages.length){
+
+        for (i = current_messages.length ; i < to_loop; i++) {
+            if (current_messages[i]!==usable[i]){
+                console.log(usable[i]);
+                current_messages.push(usable[i])
+            }
+          }
+          
+    }
+
+
+
+
 }
 
 
@@ -27,7 +52,7 @@ async function update_messages() {
     // console.log(new_messages.json());
 
 function send_message(){
-    update_messages();
+
     console.log("updated message");
     var message = document.getElementById("message_sent");
     // console.log(message.value);

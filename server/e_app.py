@@ -14,9 +14,6 @@ app.secret_key = "verysecretwewillchangethissoonlol"
 try:messages #if messages is already initialized, do nothing
 except:messages = []
 
-
-
-
 @app.route("/api/get_real_messages", methods=["GET"])
 def get_real_messages():
     global messages
@@ -24,10 +21,11 @@ def get_real_messages():
     tosend = {}
     i = 0
     for m in messages:
+        tosend[i] = m
         i += 1
-        tosend[str(i)] = m
 
-    print(tosend)
+    if tosend=={}:
+        tosend={0:""}
     return tosend
 
 

@@ -29,17 +29,22 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#"  style="color:dimgrey">
+						<a class="nav-link" href="#" style="color:dimgrey">
 							Home
-							<span class="sr-only"  style="color:dimgrey">(current)</span>
+							<span class="sr-only" style="color:dimgrey">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link"  onclick="Upload()" href="javascript:void(0);" style="color:dimgrey">Upload</a>
+						<a class="nav-link" onclick="Upload()" href="javascript:void(0);" style="color:dimgrey">Upload</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#"  style="color:dimgrey">Chat</a>
+						<a class="nav-link" href="#" style="color:dimgrey">Chat</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" style="color:dimgrey">Hall of Fame</a>
+					</li>
+
+
 
 				</ul>
 			</div>
@@ -47,10 +52,7 @@
 	</nav>
 	<div id="bar" class="bar1" hidden></div>
 	<div id="logosmall" class="logosmall" hidden></div>
-	<div class="uploadpopup">
-		<span id="uploadpopup" class="uploadpopup"></span>
-		
-	</div>
+	
 	<p id="brand" class="brand" hidden>DogeGram</p>
 	<div id="upload" class="uploadbutton" hidden></div>
 	<div id="chat" class="chatbutton" hidden></div>
@@ -92,9 +94,20 @@
 
 		console.log('loaded');
 		function Upload() {
-			console.log("OK")
-            var popup = document.getElementById("uploadpopup");
-            popup.classList.toggle("show");
+            brand.hidden = true
+
+            upload.hidden = true
+
+            //chat.hidden = false
+
+            madetext.innerHTML = "Sumbit Your Dog's Picture"
+
+
+
+            voted.hidden = true
+
+            firstplace.hidden = true
+
         }
 
 

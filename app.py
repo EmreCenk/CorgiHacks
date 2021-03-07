@@ -3,9 +3,8 @@ from flask import Flask, render_template, redirect, url_for, request, Response
 from image_api import image_api_blueprint, db
 
 app = Flask(__name__)
+
 app.register_blueprint(image_api_blueprint)
-
-
 
 from socket import AF_INET, socket, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 
@@ -122,7 +121,7 @@ except:messages = []
 @app.route("/api/get_real_messages", methods=["GET"])
 def get_real_messages():
     global messages
-    print(messages)
+    # print(messages)
     tosend = {}
     i = 0
     for m in messages:
@@ -208,6 +207,10 @@ def home_page():
 
         return ('',204)
 
+@app.route("/chat", methods=['POST','GET'])
+def chat_display():
+    print("here")
+    return render_template("chat.html")
 
 @app.route('/get_messages')
 def get_messages():

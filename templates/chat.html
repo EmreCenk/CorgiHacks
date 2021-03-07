@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet"
+		  href="{{ url_for('static',filename='styles/style1.css') }}" />
+	<!--<script
+		src="https://www.google.com/recaptcha/api.js"
+		async
+		defer
+	></script>-->
+</head>
+
+<body>
+	<!--<form action="?" method="POST">
+		<div class="g-recaptcha"
+			 data-sitekey="6LdT0HQaAAAAAH4n93NSodNKTMjAM2iqp47teBlN"></div>
+		<br />
+		<input type="submit" value="Submit" />
+	</form>-->
+	<nav id="bootbar" class="navbar navbar-expand-lg navbar-dark bg-light static-top" hidden>
+		<div class="message_container">
+			<a class="navbar-brand" href="#">
+				<img src="..\static\Design_ELEMENTS\logosmall.png" style="width:100px; height:100px"alt="DogeGram!">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">
+							Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="bar" class="bar1" hidden></div>
+	<div id="logosmall" class="logosmall" hidden></div>
+
+	<p id="brand" class="brand" hidden>DogeGram</p>
+	<div id="upload" class="uploadbutton" hidden></div>
+	<div id="chat" class="chatbutton" hidden></div>
+	<p id="madetext" class="madeforyou" hidden>Made for you</p>
+
+	<p id="voted" class="mostvoted" hidden>Today's Most Liked</p>
+	<div id="firstplace" class="firstplace" hidden></div>
+
+	<!-- <button id="create_div">See more</button> -->
+	<div id="pictures">
+		<div class="grid_picture"><img href="jhskdgf"></img></div>
+		<div class="grid_picture"><img href="jhskdgf"></img></div>
+		<div class="grid_picture"><img href="jhskdgf"></img></div>
+		<div class="grid_picture"><img href="jhskdgf"></img></div>
+		<div class="grid_picture"><img href="jhskdgf"></img></div>
+	</div>
+
+	<p id="fade" hidden>Test</p>
+
+	<!-- <img id="test"
+		 src="{{ url_for('static',filename='Design_ELEMENTS/SPLASH.png') }}"
+		 alt="DogeGram"
+		 style="vertical-align: middle; animation: fadeIn ease 3s"
+		 class="center" />
+	<br /> -->
+	<!-- <p class="font" id="click">Click Anyware to Start!</p> -->
+    
+    <div class="togetherforever">
+        <form name = "message_sending" id = "message_sending" novalidate="novalidate" method="POST">
+            <div class="row align-items-stretch mb-5">
+    
+                <div class="col-md-6" id="centered_alpha">
+                    <div class="form-group modded_form">
+                        <input onkeypress="check_if_enter(event)" autocomplete="off" class="form-control" id="message_sent" name="message_sent" type="text" placeholder="Send Message"/>
+                        <!-- <p id="validthinghere" class="help-block text-danger"   ></p> <br>
+                        <p id="second" class="help-block "  > {{result}}</p> <br> -->
+                    </div>
+    
+                </div>
+    
+            </div>
+            <div class="text-center" id = "mescontain">
+                <div id="success"></div>
+                <button class="btn btn-primary btn-xl text-uppercase" id="alp" type="button"
+                        onclick="send_message()">Send</button>
+            </div>
+    
+        </form>
+
+        <div id="formessages"></div>
+
+    </div>
+	<br />
+	<br />
+
+	<script type = "text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
+
+</body>
+</html>

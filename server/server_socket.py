@@ -61,7 +61,9 @@ def client_com(user):
                 print(f"{name} : ", msg)
                 send_to_everyone(msg, name)
         except Exception as problem:
+            users.pop(users.index(user))
             print(users,problem)
+
             go=False #The person has disconnected
 
 

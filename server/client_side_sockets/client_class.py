@@ -15,7 +15,7 @@ class client:
 
     def __init__(self, username):
         #Initialize person
-        
+        self.username = username
         self.server_socket = socket(AF_INET, SOCK_STREAM)
         self.server_socket.connect(self.address)
         self.send_message(username)

@@ -9,7 +9,7 @@ app.register_blueprint(image_api_blueprint)
 from socket import AF_INET, socket, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 
 from threading import Thread
-
+num_users=1
 #THESE ARE THE GLOBAL VARIABLES THAT WILL BE USED THROUGHOUT THE ENTIRE CODE
 host= "localhost"
 port=5500
@@ -153,11 +153,11 @@ def disconnect_client():
 
 @app.route('/', methods=["POST","GET"])
 def home_page():
-    global current_client
+    global current_client,num_users
 
     if key_for_client_username not in session:
-        session[key_for_client_username] = "Username9" #this will be customized once we have login page.
-
+        session[key_for_client_username] = "User " +str(num_users) #this will be customized once we have login page.
+        print("alpha",session[key_for_client_username])
     # if key_for_client_username not in session:
     #     return url_for("set_name")
 
@@ -165,7 +165,9 @@ def home_page():
 
     if request.method == 'GET':
         if not client_true():
+            print(session[key_for_client_username])
             current_client = client(username=session[key_for_client_username])
+            num_users+=1
             # session['client']=current_client
             print("client initialized1")
 
@@ -180,7 +182,7 @@ def home_page():
         if not client_true():
             #TODO: REDIRECT TO THE PAGE WHERE YOU CHOOSE A USERNAME
             current_client=client(session[key_for_client_username])
-            session['client'] = current_client
+
             print("client initialized2",current_client.username)
 
         dict_given=eval(request.data)

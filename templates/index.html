@@ -23,25 +23,25 @@
 			<a class="navbar-brand" href="#">
 				<img src="..\static\Design_ELEMENTS\logosmall.png" style="width:100px; height:100px" alt="DogeGram!">
 			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" onclick="Home()" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#" style="color:dimgrey">
+						<a class="nav-link"  onclick="Home()" href="javascript:void(0);"style="color:dimgrey">
 							Home
-							<span class="sr-only" style="color:dimgrey">(current)</span>
+							<span class="sr-only" style="color:dimgrey"></span>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" onclick="Upload()" href="javascript:void(0);" style="color:dimgrey">Upload</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" style="color:dimgrey">Chat</a>
+						<a class="nav-link"  onclick="Chat()" href="javascript:void(0);" style="color:dimgrey">Chat</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" style="color:dimgrey">Hall of Fame</a>
+						<a class="nav-link"  onclick="" href="javascript:void(0);" style="color:dimgrey">Hall of Fame</a>
 					</li>
 
 
@@ -54,7 +54,8 @@
 	<div id="logosmall" class="logosmall" hidden></div>
 
 	<p id="brand" class="brand" hidden>DogeGram</p>
-	<button id="upload" class="uploadbutton" hidden>Upload File</button>
+	<button id ="upload" class="uploadbutton" hidden>Upload File</button>
+	
 	<div id="chat" class="chatbutton" hidden></div>
 	<!--<div id="preview" class="imagetoupload" hidden></div>-->
 	<input id="CAPTION" placeholder="Write a caption for you picture!" class="input" hidden/>
@@ -63,6 +64,7 @@
 	<p id="madetext" class="madeforyou" hidden>Made for you</p>
 
 	<p id="voted" class="mostvoted" hidden>Today's Most Liked</p>
+
 	<div id="firstplace" class="firstplace" hidden></div>
 	<br />
 
@@ -89,10 +91,11 @@
 		var brand = document.getElementById("brand")
 		var upload = document.getElementById("upload")
 		var chat = document.getElementById("chat")
-		var preview = document.getElementById("preview")
+		//var preview = document.getElementById("preview")
         var caption = document.getElementById("CAPTION")
         var submitimage = document.getElementById("submitimage")
 		var madetext = document.getElementById("madetext")
+		var emre = document.getElementById("emre")
 		var bootbar = document.getElementById("bootbar")
 		var voted = document.getElementById("voted")
 		var firstplace = document.getElementById("firstplace")
@@ -100,12 +103,29 @@
 		var bar = document.getElementById("bar")
 
 		console.log('loaded');
+		function Chat() {
+            brand.hidden = true
+
+            upload.hidden = true
+            submitimage.hidden = true
+            //preview.hidden = true
+            caption.hidden = true
+            //chat.hidden = true
+
+            madetext.innerHTML = "Emre put chat!!"
+
+
+
+            voted.hidden = true
+
+            firstplace.hidden = true
+        }
 		function Upload() {
 			brand.hidden = true
-
+			
 			upload.hidden = false
 			submitimage.hidden = false
-			preview.hidden = false
+			//preview.hidden = false
 			caption.hidden = false
 			//chat.hidden = false
 
@@ -118,6 +138,23 @@
 			firstplace.hidden = true
 
 		}
+		function Home() {
+            brand.hidden = false
+
+            upload.hidden = true
+            submitimage.hidden = true
+            //preview.hidden = false
+            caption.hidden = true
+            //chat.hidden = false
+
+            madetext.innerHTML = "Made for you"
+
+
+
+            voted.hidden = false
+
+            firstplace.hidden = false
+        }
 
 
 		$('*').click(function (event) {

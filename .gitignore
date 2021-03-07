@@ -1,0 +1,8 @@
+.vscode
+.vs
+__pycache__
+data/images.db
+env
+environment_variables
+.idea
+venv

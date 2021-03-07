@@ -1,0 +1,184 @@
+.fade-in {
+    animation: fadeIn ease 20s;
+    -webkit-animation: fadeIn ease 20s;
+    -moz-animation: fadeIn ease 20s;
+    -o-animation: fadeIn ease 20s;
+   
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}
+
+.blinktext {
+    animation: blinker 1s linear infinite
+}
+.font {
+    animation: fadeIn ease 3s;
+    animation: blinker 1s linear infinite;
+    font-size: 25px;
+    text-align: center;
+    font-family: "Segoe UI";
+    margin-left: auto;
+    margin-right: auto;
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+.fadeoutelement {
+    animation: fadeout ease 3s
+}
+@keyframes fadeout {
+    50%{
+        opacity: 1;
+    }
+}
+.logosmall {
+    background: url("..\Design_ELEMENTS/logosmall.png");
+    width: 30px;
+    height: 30px;
+}
+.brand { /* DogeGram */
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    left: 279px;
+    top: 92px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 67px;
+    text-align: right;
+    color: #7221B3;
+}
+.uploadbutton {
+    /* PngItem_1571855 1 */
+    position: absolute;
+    width: 130.32px;
+    height: 100px;
+    left: 1469px;
+    top: 86px;
+    background: url(..\Design_ELEMENTS\Upload.png);
+}
+.chatbutton {
+    /* PngItem_1489577 1 */
+    position: absolute;
+    width: 122px;
+    height: 110px;
+    left: 100px;
+    
+    background: url(..\Design_ELEMENTS\Chat.png);
+}
+.greet {
+    /* Hello, Sample User! */
+    position: absolute;
+    width: 555px;
+    height: 58px;
+    left: 324px;
+    top: 371px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 64px;
+    color: #000000;
+}
+.madeforyou {
+    /* Made for you */
+    position: absolute;
+    width: 808px;
+    height: 149px;
+    left: 324px;
+    top: 418px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 125px;
+    line-height: 166px;
+    color: #000000;
+}
+
+.bar1 {
+    background: rgba(248,248,248,1);
+    width: 100%;
+    height: 200px;
+}
+.mostvoted {
+    /* Today’s Most Liked */
+    position: absolute;
+    width: 731px;
+    height: 90px;
+    left: 308px;
+    top: 2009px;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 75px;
+    line-height: 100px;
+    color: #000000;
+}
+.firstplace {
+    /* Rectangle 11 */
+    position: absolute;
+    width: 1272px;
+    height: 497px;
+    left: 308px;
+    top: 2158px;
+    background: #C4C4C4;
+}

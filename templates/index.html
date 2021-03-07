@@ -21,7 +21,7 @@
 	<nav id="bootbar" class="navbar navbar-expand-lg navbar-dark bg-light static-top" hidden>
 		<div class="container">
 			<a class="navbar-brand" href="#">
-				<img src="..\static\Design_ELEMENTS\logosmall.png" style="width:100px; height:100px" alt="DogeGram!">
+				<img src="..\static\Design_ELEMENTS\logosmall.png" style="width:100px; height:100px"alt="DogeGram!">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -38,11 +38,7 @@
 						<a class="nav-link" onclick="Upload()" href="javascript:void(0);" style="color:dimgrey">Upload</a>
 					</li>
 					<li class="nav-item">
-<<<<<<< HEAD
 						<a class="nav-link" href="/chat" style="color:dimgrey">Chat</a>
-=======
-						<a class="nav-link" href="#" style="color:dimgrey">Chat</a>
->>>>>>> c2fb015e23b2f2618499d76f1065030c58be3cea
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#" style="color:dimgrey">Hall of Fame</a>
@@ -58,12 +54,8 @@
 	<div id="logosmall" class="logosmall" hidden></div>
 	
 	<p id="brand" class="brand" hidden>DogeGram</p>
-	<button id="upload" class="uploadbutton" hidden>Upload File</button>
+	<div id="upload" class="uploadbutton" hidden></div>
 	<div id="chat" class="chatbutton" hidden></div>
-	<!--<div id="preview" class="imagetoupload" hidden></div>-->
-	<input id="CAPTION" placeholder="Write a caption for you picture!" class="input" hidden/>
-
-	<button type="submit" id="submitimage" class="uploadimagebutton"hidden >Submit!</button>
 	<p id="madetext" class="madeforyou" hidden>Made for you</p>
 
 	<p id="voted" class="mostvoted" hidden>Today's Most Liked</p>
@@ -93,9 +85,6 @@
 		var brand = document.getElementById("brand")
 		var upload = document.getElementById("upload")
 		var chat = document.getElementById("chat")
-		var preview = document.getElementById("preview")
-        var caption = document.getElementById("CAPTION")
-        var submitimage = document.getElementById("submitimage")
 		var madetext = document.getElementById("madetext")
 		var bootbar = document.getElementById("bootbar")
 		var voted = document.getElementById("voted")
@@ -105,7 +94,6 @@
 
 		console.log('loaded');
 		function Upload() {
-<<<<<<< HEAD
             brand.hidden = true
 
             upload.hidden = true
@@ -121,25 +109,6 @@
             firstplace.hidden = true
 
         }
-=======
-			brand.hidden = true
-
-			upload.hidden = false
-			submitimage.hidden = false
-			preview.hidden = false
-			caption.hidden = false
-			//chat.hidden = false
-
-			madetext.innerHTML = "Submissions"
-
-
-
-			voted.hidden = true
-
-			firstplace.hidden = true
-
-		}
->>>>>>> c2fb015e23b2f2618499d76f1065030c58be3cea
 
 
 		$('*').click(function (event) {
@@ -152,7 +121,7 @@
 				bootbar.hidden = false
 				brand.hidden = true
 
-				upload.hidden = true
+				upload.hidden = false
 
 				//chat.hidden = false
 
@@ -167,11 +136,7 @@
 
 
 			}
-<<<<<<< HEAD
            
-=======
-
->>>>>>> c2fb015e23b2f2618499d76f1065030c58be3cea
 			if (this === event.target) {
 				if (x == true) {
 					x = false

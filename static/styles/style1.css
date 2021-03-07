@@ -110,13 +110,11 @@
 .uploadbutton {
     /* PngItem_1571855 1 */
     position: absolute;
-<<<<<<< HEAD
     width: 130.32px;
     height: 100px;
     left: 1469px;
     top: 86px;
     background: url(..\static\Design_ELEMENTS\showmorebuttonbackground.png);
-=======
     width: 10%;
     border: none;
     left: 50%;
@@ -145,7 +143,6 @@
     left: 50%;
     top: 25%;
     background: #C4C4C4;
->>>>>>> c2fb015e23b2f2618499d76f1065030c58be3cea
 }
 .input {
     position: absolute;
@@ -257,7 +254,6 @@
     }
 
 
-<<<<<<< HEAD
 /* Chat containers */
 .message_container {
   border: 2px solid #dedede;
@@ -362,13 +358,11 @@
 #formessages{
     overflow:scroll;
     height:400px;
-    width:auto;
+    width:80%;
     margin-top: 0;
 }
 
-/* #message_sending{
-    margin-top: 50%;
-} */
-=======
+#message_sending{
+    margin-top: 10%;
+}
 
->>>>>>> c2fb015e23b2f2618499d76f1065030c58be3cea

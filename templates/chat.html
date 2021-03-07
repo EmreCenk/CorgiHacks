@@ -18,56 +18,8 @@
 		<br />
 		<input type="submit" value="Submit" />
 	</form>-->
-	<nav id="bootbar" class="navbar navbar-expand-lg navbar-dark bg-light static-top" hidden>
-		<div class="message_container">
-			<a class="navbar-brand" href="#">
-				<img src="..\static\Design_ELEMENTS\logosmall.png" style="width:100px; height:100px"alt="DogeGram!">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">
-							Home
-							<span class="sr-only">(current)</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Services</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<div id="bar" class="bar1" hidden></div>
-	<div id="logosmall" class="logosmall" hidden></div>
-
-	<p id="brand" class="brand" hidden>DogeGram</p>
-	<div id="upload" class="uploadbutton" hidden></div>
-	<div id="chat" class="chatbutton" hidden></div>
-	<p id="madetext" class="madeforyou" hidden>Made for you</p>
-
-	<p id="voted" class="mostvoted" hidden>Today's Most Liked</p>
-	<div id="firstplace" class="firstplace" hidden></div>
-
-	<!-- <button id="create_div">See more</button> -->
-	<div id="pictures">
-		<div class="grid_picture"><img href="jhskdgf"></img></div>
-		<div class="grid_picture"><img href="jhskdgf"></img></div>
-		<div class="grid_picture"><img href="jhskdgf"></img></div>
-		<div class="grid_picture"><img href="jhskdgf"></img></div>
-		<div class="grid_picture"><img href="jhskdgf"></img></div>
-	</div>
-
+	<button style="margin-left:40px;margin-top:40px" onclick="location.href = '/'" >Go back</button>
+    <br><br>
 	<p id="fade" hidden>Test</p>
 
 	<!-- <img id="test"
@@ -88,15 +40,16 @@
                         <!-- <p id="validthinghere" class="help-block text-danger"   ></p> <br>
                         <p id="second" class="help-block "  > {{result}}</p> <br> -->
                     </div>
-    
+
+                    <div class="text-center" id = "mescontain">
+                        <div id="success"></div>
+                        <button class="btn btn-primary btn-xl text-uppercase" id="alp" type="button"
+                                onclick="send_message()">Send</button>
+                    </div>
                 </div>
-    
+
             </div>
-            <div class="text-center" id = "mescontain">
-                <div id="success"></div>
-                <button class="btn btn-primary btn-xl text-uppercase" id="alp" type="button"
-                        onclick="send_message()">Send</button>
-            </div>
+
     
         </form>
 

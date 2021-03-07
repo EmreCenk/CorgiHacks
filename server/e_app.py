@@ -3,6 +3,8 @@ from flask import Flask, render_template, redirect, url_for, request, Response,s
 from server.client_side_sockets.client_class import client
 from time import sleep
 from threading import Thread
+# from server import server_socket
+
 global messages
 global current_client
 
@@ -144,8 +146,9 @@ def update_messages():
 
 
 
+def everything():
+    global app
 
-if __name__ == '__main__':
     Thread(target = update_messages).start() #start a thread constantly checking messages
-
     app.run(debug=True)
+everything()

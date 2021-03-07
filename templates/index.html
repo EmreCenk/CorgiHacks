@@ -21,7 +21,7 @@
 	<nav id="bootbar" class="navbar navbar-expand-lg navbar-dark bg-light static-top" hidden>
 		<div class="container">
 			<a class="navbar-brand" href="#">
-				<img src="..\static\Design_ELEMENTS\logosmall.png" style="width:100px; height:100px"alt="DogeGram!">
+				<img src="..\static\Design_ELEMENTS\logosmall.png" style="width:100px; height:100px" alt="DogeGram!">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -52,10 +52,14 @@
 	</nav>
 	<div id="bar" class="bar1" hidden></div>
 	<div id="logosmall" class="logosmall" hidden></div>
-	
+
 	<p id="brand" class="brand" hidden>DogeGram</p>
-	<div id="upload" class="uploadbutton" hidden></div>
+	<button id="upload" class="uploadbutton" hidden>Upload File</button>
 	<div id="chat" class="chatbutton" hidden></div>
+	<!--<div id="preview" class="imagetoupload" hidden></div>-->
+	<input id="CAPTION" placeholder="Write a caption for you picture!" class="input" hidden/>
+
+	<button type="submit" id="submitimage" class="uploadimagebutton"hidden >Submit!</button>
 	<p id="madetext" class="madeforyou" hidden>Made for you</p>
 
 	<p id="voted" class="mostvoted" hidden>Today's Most Liked</p>
@@ -85,6 +89,9 @@
 		var brand = document.getElementById("brand")
 		var upload = document.getElementById("upload")
 		var chat = document.getElementById("chat")
+		var preview = document.getElementById("preview")
+        var caption = document.getElementById("CAPTION")
+        var submitimage = document.getElementById("submitimage")
 		var madetext = document.getElementById("madetext")
 		var bootbar = document.getElementById("bootbar")
 		var voted = document.getElementById("voted")
@@ -94,21 +101,23 @@
 
 		console.log('loaded');
 		function Upload() {
-            brand.hidden = true
+			brand.hidden = true
 
-            upload.hidden = true
+			upload.hidden = false
+			submitimage.hidden = false
+			preview.hidden = false
+			caption.hidden = false
+			//chat.hidden = false
 
-            //chat.hidden = false
-
-            madetext.innerHTML = "Sumbit Your Dog's Picture"
+			madetext.innerHTML = "Submissions"
 
 
 
-            voted.hidden = true
+			voted.hidden = true
 
-            firstplace.hidden = true
+			firstplace.hidden = true
 
-        }
+		}
 
 
 		$('*').click(function (event) {
@@ -121,7 +130,7 @@
 				bootbar.hidden = false
 				brand.hidden = true
 
-				upload.hidden = false
+				upload.hidden = true
 
 				//chat.hidden = false
 
@@ -136,7 +145,7 @@
 
 
 			}
-           
+
 			if (this === event.target) {
 				if (x == true) {
 					x = false

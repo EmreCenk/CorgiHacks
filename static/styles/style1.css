@@ -110,12 +110,43 @@
 .uploadbutton {
     /* PngItem_1571855 1 */
     position: absolute;
-    width: 130.32px;
-    height: 100px;
-    left: 1469px;
-    top: 86px;
-    background: url(..\static\Design_ELEMENTS\showmorebuttonbackground.png);
+    width: 10%;
+    border: none;
+    left: 50%;
+    height: 20%;
+    font-family: 'Segoe UI';
+
+    top: 40%;
+    background: url(../Design_ELEMENTS/buttonbackground.png);
 }
+.uploadimagebutton {
+    background: url(../Design_ELEMENTS/buttonbackground.png);
+    position: absolute;
+    width: 10%;
+    border: none;
+    height: 5%;
+    font-family: 'Segoe UI';
+    left:80%;
+    top: 110%;
+}
+.imagetoupload {
+    /* Rectangle 21 */
+    position: absolute;
+    width: 400px;
+    border: none;
+    height: 400px;
+    left: 50%;
+    top: 25%;
+    background: #C4C4C4;
+}
+.input {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 60%;
+    height: 300px;
+}
+
 .chatbutton {
     /* PngItem_1489577 1 */
     position: absolute;

@@ -142,15 +142,14 @@
 .madeforyou {
     /* Made for you */
     position: absolute;
-    width: 808px;
-    height: 149px;
-    left: 324px;
-    top: 418px;
+    width: 404px;
+    height: 74.5px;
+    left: 10%;
     font-family: Segoe UI;
     font-style: normal;
     font-weight: 600;
-    font-size: 125px;
-    line-height: 166px;
+    font-size: 40px;
+    line-height: 1px;
     color: #000000;
 }
 
@@ -164,21 +163,58 @@
     position: absolute;
     width: 731px;
     height: 90px;
-    left: 308px;
-    top: 2009px;
+    left: 10%;
+    top: 100%;
     font-family: Segoe UI;
     font-style: normal;
     font-weight: 600;
-    font-size: 75px;
-    line-height: 100px;
+    font-size: 50px;
+    line-height: 1px;
     color: #000000;
 }
 .firstplace {
     /* Rectangle 11 */
     position: absolute;
-    width: 1272px;
-    height: 497px;
-    left: 308px;
-    top: 2158px;
+    width: 400px;
+    height: 200px;
+    left: 10%;
+    top: 120%;
     background: #C4C4C4;
 }
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* The actual popup */
+
+.uploadbutton {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.uploadpopup.frame {
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background-color: #555;
+}
+
+    .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
+
+
+

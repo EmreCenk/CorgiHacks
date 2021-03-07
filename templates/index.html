@@ -29,47 +29,28 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">
+						<a class="nav-link" href="#"  style="color:dimgrey">
 							Home
-							<span class="sr-only">(current)</span>
+							<span class="sr-only"  style="color:dimgrey">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
+						<a class="nav-link"  onclick="Upload()" href="javascript:void(0);" style="color:dimgrey">Upload</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Services</a>
+						<a class="nav-link" href="#"  style="color:dimgrey">Chat</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact</a>
-					</li>
+
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<form name = "message_sending" id = "message_sending" novalidate="novalidate" method="POST">
-	<div class="row align-items-stretch mb-5">
-
-		<div class="col-md-6" id="centered_alpha">
-			<div class="form-group modded_form">
-				<input onkeypress="check_if_enter(event)" autocomplete="off" class="form-control" id="message_sent" name="message_sent" type="text" placeholder="Send Message"/>
-				<!-- <p id="validthinghere" class="help-block text-danger"   ></p> <br>
-				<p id="second" class="help-block "  > {{result}}</p> <br> -->
-			</div>
-
-		</div>
-
-	</div>
-	<div class="text-center" id = "mescontain">
-		<div id="success"></div>
-		<button class="btn btn-primary btn-xl text-uppercase" id="alp" type="button"
-				onclick="send_message()">Send</button>
-	</div>
-
-</form>
 	<div id="bar" class="bar1" hidden></div>
 	<div id="logosmall" class="logosmall" hidden></div>
-
+	<div class="uploadpopup">
+		<span id="uploadpopup" class="uploadpopup"></span>
+		
+	</div>
 	<p id="brand" class="brand" hidden>DogeGram</p>
 	<div id="upload" class="uploadbutton" hidden></div>
 	<div id="chat" class="chatbutton" hidden></div>
@@ -77,6 +58,7 @@
 
 	<p id="voted" class="mostvoted" hidden>Today's Most Liked</p>
 	<div id="firstplace" class="firstplace" hidden></div>
+	<br />
 
 
 	<p id="fade" hidden>Test</p>
@@ -109,6 +91,11 @@
 		var bar = document.getElementById("bar")
 
 		console.log('loaded');
+		function Upload() {
+			console.log("OK")
+            var popup = document.getElementById("uploadpopup");
+            popup.classList.toggle("show");
+        }
 
 
 		$('*').click(function (event) {
@@ -136,6 +123,7 @@
 
 
 			}
+           
 			if (this === event.target) {
 				if (x == true) {
 					x = false
@@ -166,8 +154,5 @@
 			}
 		});
 	</script>
-
-	<script type = "text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
-
 </body>
 </html>

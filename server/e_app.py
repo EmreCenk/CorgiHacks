@@ -2,12 +2,15 @@
 from flask import Flask, render_template, redirect, url_for, request, Response,session,jsonify
 from server.client_side_sockets.client_class import client
 from time import sleep
+from threading import Thread
 
 key_for_client_username  = "something" #will change for usr
 app = Flask(__name__)
 app.secret_key = "verysecretwewillchangethissoonlol"
-messages = []
 
+global messages
+try:messages #if messages is already initialized, do nothing
+except:messages = []
 
 def client_true():
     global current_client
@@ -53,15 +56,19 @@ def home_page():
             #TODO: REDIRECT TO THE PAGE WHERE YOU CHOOSE A USERNAME
             current_client=client(session[key_for_client_username])
 
+        dict_given=eval(request.data)
+        if "username" in dict_given:
+
+            message = str(dict_given["username"]) #getting the message that user wants to send
 
 
+            client.send_message(self = current_client, msg=message) #sends the message
+            return ('', 204) #returning nothing
 
-        message = str(eval(request.data)["username"]) #getting the message that user wants to send
-
-
-        client.send_message(self = current_client, msg=message) #sends the message
-        return ('', 204) #returning nothing
-
+        elif "update" in dict_given:
+            global messages
+            
+            return messages
 
 
 @app.route('/get_messages')
@@ -69,22 +76,37 @@ def get_messages():
     global messages
     return jsonify({"messages":messages})
 def update_messages():
+    global messages
+
+    messages = []
+
     go=True
 
     while go:
-        if not client_true():continue #don't do anything, client has not been initialized yet
+        if not client_true(): continue #client is not initialized, don't bother doing anything
+        new_messages = current_client.get_messages()
+        messages.extend(new_messages) #add all of the messages in new messages
 
-        new_msgs = current_client.get_messages() #get the new messages
-
-        for msg in new_msgs:
-            print(msg)
-            if msg == "{nonoquitquitquit}":
+        for msg in new_messages:
+            if msg=="{nonoquitquitquit}":
+                #this message is sent when you quit
                 disconnect_client()
                 go=False
                 break
 
+        while len(messages)>50:
+            messages.pop(0)
+
 
 
         sleep(0.2) #checks every 0.2 seconds
+
+
+
+
+
+
 if __name__ == '__main__':
+    Thread(target = update_messages).start() #start a thread constantly checking messages
+
     app.run(debug=True)

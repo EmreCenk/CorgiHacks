@@ -16,8 +16,8 @@ class client:
     def __init__(self, username):
         #Initialize person
         
-        self.socket_of_client = socket(AF_INET, SOCK_STREAM)
-        self.socket_of_client.connect(self.address)
+        self.server_socket = socket(AF_INET, SOCK_STREAM)
+        self.server_socket.connect(self.address)
         self.send_message(username)
 
         self.messages = []
@@ -31,7 +31,7 @@ class client:
         """
         while True:
             try:
-                msg = self.socket_of_client.recv(self.buffer_size).decode()
+                msg = self.server_socket.recv(self.buffer_size).decode()
 
                 # make sure memory is safe to access
                 self.lock.acquire()
@@ -47,14 +47,14 @@ class client:
 
         """
         try:
-            self.socket_of_client.send(bytes(msg, "utf8"))
+            self.server_socket.send(bytes(msg, "utf8"))
             if msg == "{nonoquitquitquit}":
-                self.socket_of_client.close()
+                self.server_socket.close()
                 
         except Exception as e:
             #something didn't work, we try it again
-            self.socket_of_client = socket(AF_INET, SOCK_STREAM)
-            self.socket_of_client.connect(self.address)
+            self.server_socket = socket(AF_INET, SOCK_STREAM)
+            self.server_socket.connect(self.address)
             print(e)
 
     def get_messages(self):

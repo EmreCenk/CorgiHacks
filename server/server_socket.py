@@ -50,7 +50,7 @@ def client_com(user):
         try:
             msg=client.recv(buffer_size).decode("utf8")
 
-            if msg == "{leave}":
+            if msg == "{nonoquitquitquit}":
                 users.remove(user) #removing user from the array of users
                 send_to_everyone(f"{name} has left the chat...","")
                 client.close()
@@ -61,8 +61,8 @@ def client_com(user):
                 print(f"{name} : ", msg)
                 send_to_everyone(msg, name)
         except Exception as problem:
-            print("Something has gone wrong: " + str(problem))
-            go=False #some error has happened, therefore we are stopping this thread
+            print(users,problem)
+            go=False #The person has disconnected
 
 
 def wait_to_connect(server):

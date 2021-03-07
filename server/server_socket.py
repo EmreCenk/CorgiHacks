@@ -67,6 +67,8 @@ def client_com(user):
             go=False #The person has disconnected
 
 
+
+
 def wait_to_connect(server):
 
     #Wait for a new client to connect. Once connected, start a new thread.
@@ -74,6 +76,7 @@ def wait_to_connect(server):
     go=True
 
     while go:
+
 
         try:
             client, client_address = server.accept()

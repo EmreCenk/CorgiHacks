@@ -16,6 +16,21 @@ except:messages = []
 
 
 
+
+@app.route("/api/get_real_messages", methods=["GET"])
+def get_real_messages():
+    global messages
+    print(messages)
+    tosend = {}
+    i = 0
+    for m in messages:
+        i += 1
+        tosend[str(i)] = m
+
+    print(tosend)
+    return tosend
+
+
 def client_true():
 
     try:
@@ -75,17 +90,20 @@ def home_page():
             client.send_message(self = current_client, msg=message) #sends the message
             return ('', 204) #returning nothing
 
-        elif "update" in dict_given:
-            global messages
-            tosend={}
-            i=0
-            for m in messages:
-                i+=1
-                tosend[str(i)]=m
+        # elif "update" in dict_given:
+        #     global messages
+        #     tosend={}
+        #
+        #     i=0
+        #     for m in messages:
+        #         i+=1
+        #         tosend[str(i)]=m
+        #
+        #     print(tosend)
+        #
+        #     return tosend
 
-            print(tosend)
-
-            return tosend
+        return ('',204)
 
 
 @app.route('/get_messages')

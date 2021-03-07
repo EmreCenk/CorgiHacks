@@ -9,19 +9,22 @@
 //         return false;
 //     });
 //     });
-function update_messages(){
-
-    let tosend = new XMLHttpRequest();
-    let url = '/';
-    tosend.open('POST',url,true);
-    
-    let json_to_send = {"update":""};
-
-    let new_messages = tosend.send(JSON.stringify(json_to_send));
-
-    console.log(new_messages.json());
-
+async function update_messages() {
+    const response = await fetch('/api/get_real_messages');
+    const usable = await response.json();
+    console.log(usable);
 }
+
+
+    // let tosend = new XMLHttpRequest();
+    // let url = '/';
+    // tosend.open('POST',url,true);
+    
+    // let json_to_send = {"update":""};
+
+    // let new_messages = tosend.send(JSON.stringify(json_to_send));
+
+    // console.log(new_messages.json());
 
 function send_message(){
     update_messages();
